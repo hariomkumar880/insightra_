@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INSIGHTRA | Data Analytics Dashboard</title>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FIXED CSS PATH -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <!-- Navbar -->
     <nav class="glass-navbar">
         <div class="logo">
             <i class="fa-solid fa-chart-line"></i> INSIGHTRA
         </div>
+
         <ul class="nav-links">
             <li><a href="index.html" class="active">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
@@ -26,86 +32,173 @@
 
     <!-- Main Container -->
     <main class="container">
+
         <!-- Upload Section -->
         <section class="upload-section glass-panel">
+
             <div id="drop-zone" class="drop-zone">
+
                 <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+
                 <h3>Drag & Drop Excel File Here</h3>
+
                 <p>or</p>
-                <label for="file-upload" class="upload-btn">Browse Files</label>
-                <input type="file" id="file-upload" accept=".xlsx, .xls, .csv, application/pdf" hidden>
-                <p class="file-name" id="file-name-display">No file selected</p>
+
+                <label for="file-upload" class="upload-btn">
+                    Browse Files
+                </label>
+
+                <input
+                    type="file"
+                    id="file-upload"
+                    accept=".xlsx,.xls,.csv,.pdf"
+                    hidden
+                >
+
+                <p class="file-name" id="file-name-display">
+                    No file selected
+                </p>
+
             </div>
+
         </section>
 
-        <!-- Metrics Cards -->
+        <!-- Metrics -->
         <section class="metrics-section">
+
             <div class="metric-card glass-panel">
-                <div class="metric-icon"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+
+                <div class="metric-icon">
+                    <i class="fa-solid fa-arrow-up-right-dots"></i>
+                </div>
+
                 <div class="metric-info">
                     <h4>Max Value</h4>
                     <p id="max-value">0</p>
                 </div>
+
             </div>
+
             <div class="metric-card glass-panel">
-                <div class="metric-icon"><i class="fa-solid fa-arrow-down-right-dots"></i></div>
+
+                <div class="metric-icon">
+                    <i class="fa-solid fa-arrow-down-right-dots"></i>
+                </div>
+
                 <div class="metric-info">
                     <h4>Min Value</h4>
                     <p id="min-value">0</p>
                 </div>
+
             </div>
+
             <div class="metric-card glass-panel">
-                <div class="metric-icon profit"><i class="fa-solid fa-sack-dollar"></i></div>
+
+                <div class="metric-icon profit">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+
                 <div class="metric-info">
                     <h4>Total Profit</h4>
                     <p id="total-profit">$0</p>
                 </div>
+
             </div>
+
             <div class="metric-card glass-panel">
-                <div class="metric-icon loss"><i class="fa-solid fa-arrow-trend-down"></i></div>
+
+                <div class="metric-icon loss">
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+                </div>
+
                 <div class="metric-info">
                     <h4>Total Loss</h4>
                     <p id="total-loss">$0</p>
                 </div>
+
             </div>
+
         </section>
 
-        <!-- Charts Section -->
+        <!-- Charts -->
         <section class="charts-section">
+
             <div class="chart-container glass-panel">
+
                 <h3>Data Distribution (Bar Chart)</h3>
+
                 <canvas id="barChart"></canvas>
+
             </div>
+
             <div class="chart-container glass-panel">
+
                 <h3>Composition (Pie Chart)</h3>
+
                 <canvas id="pieChart"></canvas>
+
             </div>
+
         </section>
+
     </main>
 
-    <!-- Floating Chatbot -->
+    <!-- Chatbot -->
     <div class="chatbot-container">
+
         <div class="chatbot-window glass-panel" id="chatbot-window">
+
             <div class="chat-header">
-                <h4><i class="fa-solid fa-robot"></i> InsightBot</h4>
-                <button id="close-chat"><i class="fa-solid fa-xmark"></i></button>
+
+                <h4>
+                    <i class="fa-solid fa-robot"></i>
+                    InsightBot
+                </h4>
+
+                <button id="close-chat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
             </div>
+
             <div class="chat-messages" id="chat-messages">
-                <div class="message bot-message">Hi! Ask me about sales, profit, or loss.</div>
+
+                <div class="message bot-message">
+                    Hi! Ask me about sales, profit, or loss.
+                </div>
+
             </div>
+
             <div class="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Type your question...">
-                <button id="send-chat"><i class="fa-solid fa-paper-plane"></i></button>
+
+                <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Type your question..."
+                >
+
+                <button id="send-chat">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
             </div>
+
         </div>
+
         <button class="chat-fab" id="chat-fab">
             <i class="fa-solid fa-message"></i>
         </button>
+
     </div>
 
-    <!-- Scripts -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- XLSX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="js/script.js"></script>
+
+    <!-- FIXED JS PATH -->
+    <script src="script.js"></script>
+
 </body>
 </html>
