@@ -4,60 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INSIGHTRA | Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- FIXED CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body data-theme="dark">
-    <nav>
-        <a href="index.html" class="logo">INSIGHTRA</a>
-        <ul>
+
+    <!-- Navbar -->
+    <nav class="glass-navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-chart-line"></i>
+            INSIGHTRA
+        </div>
+
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><button id="theme-toggle">🌓</button></li>
         </ul>
+
     </nav>
 
-    <div class="container">
-        <h1 style="margin-bottom: 2rem;">Analytics Dashboard</h1>
-        
-        <div class="dashboard-grid">
-            <div class="card">
-                <h2>Data Summary</h2>
-                <div id="summary-container" class="summary-data">
-                    <p>Loading...</p>
+    <!-- Main Container -->
+    <main class="container">
+
+        <h1 class="dashboard-title">
+            Analytics Dashboard
+        </h1>
+
+        <!-- Summary Cards -->
+        <section class="metrics-section">
+
+            <div class="metric-card glass-panel">
+
+                <div class="metric-icon">
+                    <i class="fa-solid fa-arrow-up-right-dots"></i>
                 </div>
-            </div>
-            
-            <div class="card">
-                <h2>Visualization</h2>
-                <div style="position: relative; height:300px; width:100%">
-                    <canvas id="dataChart"></canvas>
+
+                <div class="metric-info">
+                    <h4>Max Value</h4>
+                    <p id="max-value">0</p>
                 </div>
+
             </div>
+
+            <div class="metric-card glass-panel">
+
+                <div class="metric-icon">
+                    <i class="fa-solid fa-arrow-down-right-dots"></i>
+                </div>
+
+                <div class="metric-info">
+                    <h4>Min Value</h4>
+                    <p id="min-value">0</p>
+                </div>
+
+            </div>
+
+            <div class="metric-card glass-panel">
+
+                <div class="metric-icon profit">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+
+                <div class="metric-info">
+                    <h4>Total Profit</h4>
+                    <p id="total-profit">$0</p>
+                </div>
+
+            </div>
+
+            <div class="metric-card glass-panel">
+
+                <div class="metric-icon loss">
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+                </div>
+
+                <div class="metric-info">
+                    <h4>Total Loss</h4>
+                    <p id="total-loss">$0</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Charts -->
+        <section class="charts-section">
+
+            <div class="chart-container glass-panel">
+
+                <h3>Bar Chart Analysis</h3>
+
+                <canvas id="barChart"></canvas>
+
+            </div>
+
+            <div class="chart-container glass-panel">
+
+                <h3>Pie Chart Distribution</h3>
+
+                <canvas id="pieChart"></canvas>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+
+        <div class="chatbot-window glass-panel" id="chatbot-window">
+
+            <div class="chat-header">
+
+                <h4>
+                    <i class="fa-solid fa-robot"></i>
+                    InsightBot
+                </h4>
+
+                <button id="close-chat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+
+                <div class="message bot-message">
+                    Hello! Ask me about sales, profit, loss, or trends.
+                </div>
+
+            </div>
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Ask your question..."
+                >
+
+                <button id="send-chat">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </div>
+
         </div>
+
+        <!-- Floating Button -->
+        <button class="chat-fab" id="chat-fab">
+            <i class="fa-solid fa-message"></i>
+        </button>
+
     </div>
 
-    <!-- Chatbot Button -->
-    <button id="chatbot-btn">💬</button>
+    <!-- FIXED JS -->
+    <script src="script.js"></script>
 
-    <!-- Chatbot Window -->
-    <div id="chat-window">
-        <div class="chat-header">
-            <span>INSIGHTRA AI</span>
-            <button id="close-chat">✖</button>
-        </div>
-        <div class="chat-body" id="chat-body">
-            <div class="chat-msg bot">Hello! I am ready to answer questions about your data analysis.</div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="chat-input-field" placeholder="Ask about sales, trends...">
-            <button id="chat-send">Send</button>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
