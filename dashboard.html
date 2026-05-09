@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSIGHTRA | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-theme="dark">
+    <nav>
+        <a href="index.html" class="logo">INSIGHTRA</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle">🌓</button></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 style="margin-bottom: 2rem;">Analytics Dashboard</h1>
+        
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>Data Summary</h2>
+                <div id="summary-container" class="summary-data">
+                    <p>Loading...</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Visualization</h2>
+                <div style="position: relative; height:300px; width:100%">
+                    <canvas id="dataChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Button -->
+    <button id="chatbot-btn">💬</button>
+
+    <!-- Chatbot Window -->
+    <div id="chat-window">
+        <div class="chat-header">
+            <span>INSIGHTRA AI</span>
+            <button id="close-chat">✖</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg bot">Hello! I am ready to answer questions about your data analysis.</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input-field" placeholder="Ask about sales, trends...">
+            <button id="chat-send">Send</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
